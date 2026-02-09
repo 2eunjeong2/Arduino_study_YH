@@ -5,7 +5,8 @@ int buttonState = 0;
 
 void setup() {
   pinMode(ledPin, OUTPUT);
-  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(buttonPin, INPUT);
+  Serial.begin(9600); //9600 -> baud rate 초당 전송되는 신호가 9600
 }
 
 void loop() {
@@ -14,6 +15,7 @@ void loop() {
   if (buttonState == HIGH) {
     //digitalWrite(LED_BUILTIN, HIGH);  //led 켜기
     digitalWrite(ledPin, HIGH);  //led 켜기
+    Serial.println(buttonState);
     //delay(1000); //1000 = 1초
   }
   else {
